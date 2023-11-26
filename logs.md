@@ -7,3 +7,4 @@ docker logs or crictl logs
 /var/log/containers
 
 journalctl
+journalctl | grep apiserver
