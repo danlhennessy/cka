@@ -29,3 +29,9 @@ An example process for a pod being created via a command to the apiserver:
 
 Controllers watch for the status of specific resources, for example a service controller will constantly monitor services in the cluster, and take action to restore services to the desired state. When taking action it will communicate via the apiserver
 There are built in controllers for the default kubernetes resources, and custom controllers to deal with custom resources (CRDs)
+kube controller manager is a single process containing all controllers
+
+## kube scheduler
+
+Decides which pod is scheduled onto which node, and communicates this to the apiserver. The apiserver will forward this to the kubelet on the relevant node for the action to be taken.
+The scheduler uses a priority ranking to determine the most suitable node for a requested pod. This can be influenced by configuring the scheduler itself, or by applying taints/tolerations
