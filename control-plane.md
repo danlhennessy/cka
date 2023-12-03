@@ -24,3 +24,8 @@ An example process for a pod being created via a command to the apiserver:
 - apiserver updates etcd and kubelet on the chosen node.
 - The kubelet creates the pod, and instructs the container runtime engine to deploy the busybox image. Kubelet updates the apiserver with the results
 - apiserver updates etcd with the final state
+
+## kube controller manager
+
+Controllers watch for the status of specific resources, for example a service controller will constantly monitor services in the cluster, and take action to restore services to the desired state. When taking action it will communicate via the apiserver
+There are built in controllers for the default kubernetes resources, and custom controllers to deal with custom resources (CRDs)
