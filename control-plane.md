@@ -13,3 +13,14 @@ Watch stores values representing the actual and desired state of the cluster and
 
 ## kube-apiserver
 
+kubectl commands are sent to the apiserver. Commands are authenticated, validated, and resource changes are updated in etcd. The apiserver can also be queried using HTTP requests
+It is the only control plane component that communicates directly with etcd
+
+An example process for a pod being created via a command to the apiserver:
+- kubectl command to the API server requesting a new pod ` kubectl run example --image=busybox`
+- apiserver first authenticates, then validates the request
+- apiserver creates a pod object which is yet not assigned to a node, and updates etcd and the user to confirm the pod has been created
+- kube-scheduler monitors the apiserver and finds an unassigned pod. It schedules the pod onto the correct node and confirms this back to apiserver
+- apiserver updates etcd and kubelet on the chosen node.
+- The kubelet creates the pod, and instructs the container runtime engine to deploy the busybox image. Kubelet updates the apiserver with the results
+- apiserver updates etcd with the final state
