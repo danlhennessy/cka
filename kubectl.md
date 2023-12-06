@@ -29,3 +29,6 @@ k get
 
 k describe
   k describe cm my-configmap -n my-namespace
+
+k scale
+  k scale rs my-replicaset --replicas=3
