@@ -5,4 +5,6 @@ Also monitors node workloads periodically and reports status to the apiserver
 
 ## kube-proxy
 
+When a service is created, kube-proxy is responsible for creating rules on each node, to forward service traffic onto the linked pods. This can be done using IPtables and other methods.
+
 ## container runtime
