@@ -4,6 +4,7 @@ alias k=kubectl
 
 Create:
 k create -f FILENAME
+k create <resourcetype> <resourename> args
 k create deploy NAME --image=image -- [COMMAND] [args...]
   k create deploy test --image=nginx -r 3 --dry-run=client -o yaml
   k create deploy nginx --image=nginx --dry-run=client -o yaml > nginx-deployment.yaml
@@ -14,11 +15,15 @@ k run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=server|cli
   k run example --image=busybox --dry-run=client -o yaml
   k run example --image=busybox --dry-run=client -o yaml > example.yaml
 
-k edit
-
 k apply
   k apply -f filename.yaml
   k apply -f filename.yaml -n my-namespace
+
+k edit
+  k edit deploy/my-deployment
+
+k replace
+  k replace -f my-deployment.yaml
 
 k delete
   k delete pod example
