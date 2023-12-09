@@ -6,6 +6,7 @@ Create:
 k create -f FILENAME
 k create deploy NAME --image=image -- [COMMAND] [args...]
   k create deploy test --image=nginx -r 3 --dry-run=client -o yaml
+  k create deploy nginx --image=nginx --dry-run=client -o yaml > nginx-deployment.yaml
 
 Run:
 k run NAME --image=image [--env="key=value"] [--port=port] [--dry-run=server|client] [--overrides=inline-json] [--command] -- [COMMAND] [args...]
