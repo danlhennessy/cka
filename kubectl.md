@@ -1,6 +1,8 @@
 ## Aliases / CLI shortcuts
 alias k=kubectl
+echo "alias k=kubectl" >> ~/.zshrc
 
+## Kubectl CLI
 
 Create:
 k create -f FILENAME
@@ -38,3 +40,7 @@ k describe
 
 k scale
   k scale rs my-replicaset --replicas=3
+
+k expose
+  k expose pod redis --port=6379 --name redis-service
+  k expose pod redis --port=6379 --name redis-service --type=ClusterIp --dry-run=client -o yaml
