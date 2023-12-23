@@ -38,3 +38,6 @@ There are built in controllers for the default kubernetes resources, and custom 
 kube controller manager is a single process containing all controllers
 
 ## cloud-controller-manager
+
+An optional component of the control plane that allows separation of resources that interact with the specific cloud platform.
+It deals with the connection between the cluster and Cloud providers API. Contains multiple controllers running as a single process: Node, Route and Service - responsible for managing cloud server and networking services.
