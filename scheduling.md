@@ -11,7 +11,7 @@ kubectl can use labels to narrow down results: kubectl get pod --selector app=ne
 
 ## Taints / Tolerations
 
-Used to influence which node a pod is scheduled onto. A taint is applied to a node to prevent pods matching chosen criteria from being scheduled onto it.
+Used to influence which node a pod is scheduled onto. A taint is applied to a node to prevent pods matching chosen criteria from being scheduled onto it. By default the master node is tainted to prevent new workload pods from being scheduled onto it.
 A toleration is an assigned property of a pod.
 Taint 
   kubectl taint nodes <nodename> key=value:<tainteffect>
@@ -23,3 +23,5 @@ Tolerations
       operator: "Equal"
       value: "dev"
       effect: "NoExecute"
+
+## Node Selectors / Affinity
