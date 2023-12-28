@@ -38,3 +38,7 @@ spec:
             operator: In
             values:
             - memoryOptimised
+            - storageOptimised
+
+A pod with above spec will only be scheduled onto nodes with labels: sku: memoryOptimised OR sku: storageOptimised. Alternatively you can use the operator: Exists just to check if the label exists with any value on a node.
+If there are no nodes matching the affinity, the pod will stay pending.
