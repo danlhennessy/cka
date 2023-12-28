@@ -25,3 +25,16 @@ Tolerations
       effect: "NoExecute"
 
 ## Node Selectors / Affinity
+
+A nodeSelector can be applied to a pod to reference a label on a specific node. e.g. sku: memoryOptimised. The pod will only be scheduled onto nodes with matching labels.
+Node affinity /anti affinity is used for more complicated scheduling requirements. e.g:
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: sku
+            operator: In
+            values:
+            - memoryOptimised
