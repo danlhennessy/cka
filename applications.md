@@ -27,5 +27,7 @@ spec:
 
 ## Rolling updates / rollbacks
 
-kubectl rollout deployment <deploymentname>
+kubectl set image deployment/<deploymentname> <containername>=<imagename:tag>
+kubectl rollout status deployment <deploymentname>
+kubectl rollout undo deployment <deploymentname>
     The default rollout strategy is RollingUpdate which updates pods in a rolling fashion, you can also use Recreate which will terminate all old pods before creating new ones.
