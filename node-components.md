@@ -9,3 +9,5 @@ When a service is created, kube-proxy is responsible for creating rules on each 
 When using kubeadm, kube-proxy is installed as a daemonset, so an instance will run on each node by default.
 
 ## container runtime
+
+A container runtime must be installed on each node in order to run containers. Commonly used CRs are containerD, CRI-O and Docker (Now deprecated)
