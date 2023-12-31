@@ -27,10 +27,15 @@ Backup:
         etcdctl snapshot status snapshot.db
 
 Restore:
-    ETCD Cluster:
+    ETCD Cluster (systemd services):
         service kube-apiserver stop
-        etcdctl snapshot restore snapshot.db --data-dir /var/lib/etcd-backup
+        etcdctl snapshot restore snapshot.db --data-dir=/var/lib/etcd-backup
         Adjust etcd.service to use new data dir
         systemctl daemon-reload
         service etcd restart
         service kube-apiserver start
+    ETCD Cluster (kubeadm pod):
+        etcdctl snapshot restore snapshot.db --data-dir=/var/lib/etcd-backup
+        Adjust etcd pod to use new host volume path
+        Apply pod manifest after adjustments
+        Wait for changes to propagate to cluster
