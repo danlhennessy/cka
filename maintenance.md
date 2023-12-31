@@ -30,7 +30,7 @@ Restore:
     ETCD Cluster (systemd services):
         service kube-apiserver stop
         etcdctl snapshot restore snapshot.db --data-dir=/var/lib/etcd-backup
-        Adjust etcd.service to use new data dir
+        Adjust etcd.service to use new data dir (Ensure permissions are correct - etcd:etcd)
         systemctl daemon-reload
         service etcd restart
         service kube-apiserver start
