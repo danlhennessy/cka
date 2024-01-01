@@ -8,3 +8,6 @@ docker logs or crictl logs
 
 journalctl
 journalctl | grep apiserver
+
+kubectl logs <podname> <containername>
+kubectl logs
