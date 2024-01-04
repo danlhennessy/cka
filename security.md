@@ -29,3 +29,6 @@ kube-scheduler client key/crt:
     openssl genrsa -out scheduler.key 2048
     openssl req -new -key scheduler.key -subj "/CN=kube-admin/O=system:kube-scheduler" -out scheduler.csr
     openssl x509 -req -in scheduler.csr -CA ca.crt -CAkey ca.key -out scheduler.crt
+
+The admin user crt/key can be used when making http requests to the apiserver e.g.: curl https://kube-apiserver:6443/api/v1/services --key admin.key --cert admin.crt --cacert ca.crt
+Or incorporated into a kubeconfig
